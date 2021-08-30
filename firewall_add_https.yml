@@ -2,8 +2,6 @@
 - name: FirewallD
   hosts: localhost
   connection: local
-  vars:
-    ansible_python_interpreter: /usr/local/bin/python3.8
   tasks:
     - name: FirewallD rules
       firewalld:

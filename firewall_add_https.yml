@@ -1,5 +1,7 @@
 ---
 - name: FirewallD
+  hosts: localhost
+  connection: local
   tasks:
     - name: FirewallD rules
       firewalld:
@@ -8,4 +10,4 @@
         rich_rule: "{{ item }}"
         state: enabled
       with_items:
-        - "rule family=ipv4 source address=12.12.12.12 reject"
+        - "rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4"

@@ -1,0 +1,4 @@
+- firewalld:
+    port: 8888/tcp
+    permanent: true
+    state: enabled

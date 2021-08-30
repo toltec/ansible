@@ -1,4 +1,7 @@
-- firewalld:
-    port: 8888/tcp
-    permanent: true
-    state: enabled
+---
+- name: Hello World!
+  hosts: all
+
+  tasks:
+    - name: Hello World!
+      shell: echo "Hi! Tower is working."

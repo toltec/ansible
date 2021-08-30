@@ -8,4 +8,4 @@
         rich_rule: "{{ item }}"
         state: enabled
       with_items:
-        - "rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4"
+        - "rule family=ipv4 source address=12.12.12.12 reject"

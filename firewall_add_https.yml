@@ -1,7 +1,11 @@
 ---
-- name: Hello New World!
-  hosts: all
-
+- name: FirewallD
   tasks:
-    - name: Hello World!
-      shell: echo "Hi! Tower is working."
+    - name: FirewallD rules
+      firewalld:
+        permanent: yes
+        immediate: yes
+        rich_rule: "{{ item }}"
+        state: enabled
+      with_items:
+        - "rule family=ipv4 source address=12.12.12.12 reject"

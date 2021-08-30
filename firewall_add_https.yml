@@ -1,11 +1,14 @@
 ---
 - name: FirewallD
+  hosts: localhost
+  connection: local
   tasks:
     - name: FirewallD rules
       firewalld:
         permanent: yes
         immediate: yes
-        rich_rule: "{{ item }}"
+        service: "{{ item }}"
         state: enabled
       with_items:
-        - "rule family=ipv4 source address=12.12.12.12 reject"
+        - http
+        - https

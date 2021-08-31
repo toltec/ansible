@@ -9,5 +9,5 @@
       immediate: yes
       rich_rule: "{{ item }}"
       state: enabled
-    with_items:
-      - 'rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4'
+      with_items:
+        - 'rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4'

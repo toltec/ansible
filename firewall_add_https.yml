@@ -1,14 +1,21 @@
 ---
+- name: Install Ansible Python 2 Dependencies
+  with_items:
+  - python-firewall
+  packman:
+    name: "{{item}}"
+    state: present
+
+
 - name: FirewallD
   hosts: localhost
   connection: local
   tasks:
-    - name: FirewallD rules
-      firewalld:
-        permanent: yes
-        immediate: yes
-        service: "{{ item }}"
-        state: enabled
-      with_items:
-        - http
-        - https
+  - name: FirewallD rules
+    firewalld:
+      permanent: yes
+      immediate: yes
+      rich_rule: "{{ item }}"
+      state: enabled
+    with_items:
+      - 'rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4'

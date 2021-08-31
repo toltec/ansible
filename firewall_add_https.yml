@@ -1,12 +1,4 @@
 ---
-- name: Install Ansible Python 2 Dependencies
-  with_items:
-  - python-firewall
-  packman:
-    name: "{{item}}"
-    state: present
-
-
 - name: FirewallD
   hosts: localhost
   connection: local

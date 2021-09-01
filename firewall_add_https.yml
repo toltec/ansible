@@ -1,7 +1,6 @@
 ---
  - name: FirewallD
    hosts: localhost
-   connection: local
    tasks:
     - name: FirewallD rules
       firewalld:

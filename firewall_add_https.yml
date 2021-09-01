@@ -1,14 +1,6 @@
----
- - name: FirewallD
-   hosts: localhost
-   tasks:
-    - name: FirewallD rules
-      firewalld:
-        permanent: yes
-        immediate: yes
-        rich_rule: "{{ item }}"
-        state: enabled
-      with_items:
-       - 'rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4'
-      vars:
-       - ansible_python_interpreter: '/usr/bin/python3'
+name: Firewalld Test Task
+firewalld:
+  service: https
+  state: enabled
+vars:
+  ansible_python_interpreter: '/usr/bin/python3'

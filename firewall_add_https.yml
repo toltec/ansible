@@ -9,6 +9,6 @@
         rich_rule: "{{ item }}"
         state: enabled
       with_items:
-       - 'rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4'
-     vars:
-        ansible_python_interpreter: '/usr/bin/python3'
+         'rule forward-port port=8080 protocol=tcp to-port=80 family=ipv4'
+      vars:
+         ansible_python_interpreter: '/usr/bin/python3'
